@@ -7,7 +7,7 @@ function Header() {
 
   // if root page is open then load Landing.css, if not then load Work.css
   useEffect(() => {
-    if (window.location.pathname === "/landing") { // change this location in future to /
+    if (window.location.pathname === "/") { // change this location in future to /
       const link = document.createElement("link");
       link.href = "/assets/styles/Landing.module.css";
       link.rel = "stylesheet";
@@ -26,7 +26,7 @@ function Header() {
     }
     else {
       const link = document.createElement("link");
-      link.href = "/assets/styles/Projects.module.css";
+      link.href = "/assets/styles/Landing.module.css";
       link.rel = "stylesheet";
       document.head.appendChild(link);
     }

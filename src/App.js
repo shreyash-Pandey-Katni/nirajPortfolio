@@ -7,6 +7,8 @@ import { Stack } from "@mui/material";
 import React from "react";
 import About from "./About";
 import Projects from "./Projects";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -25,12 +27,19 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
-        <Header />
-        <div style={{marginLeft:"20%", marginRight:"20%"}}>
-          <Work />
+      <Router>
+        <div className="App">
+          <Header />
+          <div style={{marginLeft:"20%", marginRight:"20%"}}>
+            <Switch>
+              <Route path="/" exact component={LandingPage} />
+              <Route path="/about" component={About} />
+              <Route path="/projects" component={Projects} />
+              <Route path="/work" component={Work} />
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
