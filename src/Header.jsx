@@ -1,24 +1,23 @@
 import { Stack } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const [transformX, setTransformX] = useState(0);
-  const [transformY, setTransformY] = useState(0);
 
   // if root page is open then load Landing.css, if not then load Work.css
   useEffect(() => {
-    if (window.location.pathname === "/landing") { // change this location in future to /
+    if (window.location.pathname === "/") { // change this location in future to /
       const link = document.createElement("link");
       link.href = "/assets/styles/Landing.module.css";
       link.rel = "stylesheet";
       document.head.appendChild(link);
-    } else if (window.location.pathname === "/work"){
+    } else if (window.location.pathname === "/work") {
       const link = document.createElement("link");
       link.href = "/assets/styles/Work.module.css";
       link.rel = "stylesheet";
       document.head.appendChild(link);
     }
-    else if(window.location.pathname === "/about"){
+    else if (window.location.pathname === "/about") {
       const link = document.createElement("link");
       link.href = "/assets/styles/About.module.css";
       link.rel = "stylesheet";
@@ -26,30 +25,20 @@ function Header() {
     }
     else {
       const link = document.createElement("link");
-      link.href = "/assets/styles/Projects.module.css";
+      link.href = "/assets/styles/Work.module.css";
       link.rel = "stylesheet";
       document.head.appendChild(link);
     }
-  }, []);
+  }, [window.location.pathname]);
 
-  // useEffect(() => {
-  //   window.addEventListener("mousemove", (event) => {
-  //     // Calculate transformX and transformY as the distance of mouse from the center of the screen and bring it down to the range of -10 to 10.
-
-  //     setTransformX(
-  //       -((event.clientX - window.innerWidth / 2) / window.innerWidth) * 20
-  //     );
-  //     setTransformY(
-  //       -((event.clientY - window.innerHeight / 2) / window.innerHeight) * 20
-  //     );
-  //   });
-  // }, []);
+  const [ariaHiddenOpen, setAriaHiddenOpen] = useState(false);
+  const [ariaHiddenClose, setAriaHiddenClose] = useState(true);
 
   return (
     <Stack direction="row">
       <div className="mainnav">
         <div class="logo-wrap">
-          <a href="/">
+          <Link to="/">
             <span class="u-vhide">Back to the homepage</span>{" "}
             <span class="logo js-logo">
               <div class="logo__skirrid">
@@ -81,38 +70,47 @@ function Header() {
                 </div>
               </div>
             </span>
-          </a>
+          </Link>
         </div>
         <div class="menu-link">
           <button
-            class="menu-link__trigger js-menu-trigger"
-            aria-expanded="false"
+            class={`menu-link__trigger js-menu-trigger ${ariaHiddenOpen ? "is-active" : ""}`}
+            aria-expanded={ariaHiddenOpen ? "false" : "true"}
             aria-controls="main-menu"
           >
             <span class="menu-link__mask">
               <span
                 class="menu-link__label menu-link__label--close js-menu-label-close"
-                aria-hidden="true"
+                aria-hidden={ariaHiddenOpen}
+                onClick={() => {
+                  document
+                    .getElementById("main-menu")
+                    .classList.toggle("is-open");
+                  setAriaHiddenOpen(!ariaHiddenOpen);
+                  setAriaHiddenClose(!ariaHiddenClose);
+                }}
               >
                 Close
               </span>{" "}
               <span
                 class="menu-link__label menu-link__label--open js-menu-label-open"
-                aria-hidden="false"
-                // onClick={() => {
-                //   document
-                //     .getElementById("main-menu")
-                //     .classList.toggle("is-open");
-                // }}
+                aria-hidden={ariaHiddenClose}
+              onClick={() => {
+                document
+                  .getElementById("main-menu")
+                  .classList.toggle("is-open");
+                setAriaHiddenOpen(!ariaHiddenOpen);
+                setAriaHiddenClose(!ariaHiddenClose);
+              }}
               >
                 Menu
               </span>
             </span>
           </button>
         </div>
-        <a
+        <Link
           class="hire-me"
-          href="mailto:nsriramula@hawk.iit.edu?subject=🤘 Hi Niraj, I'd like to hire you"
+          to="mailto:nsriramula@hawk.iit.edu?subject=🤘 Hi Niraj, I'd like to hire you"
         >
           <div
             class="shade"
@@ -137,7 +135,7 @@ function Header() {
             </svg>
           </div>
           Hire me
-        </a>
+        </Link>
       </div>
       <div class="main-menu js-menu" id="main-menu">
         <div class="main-menu__mask"></div>
@@ -145,106 +143,89 @@ function Header() {
           <div class="main-menu__inr wrap">
             <ul class="social-links">
               <li class="social-links__item">
-                <a
+                <Link
                   class="social-links__link social-links__link--ma"
-                  href="https://front-end.social/@Robb"
+                  to="https://front-end.social/@Robb"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   Follow me on Mastodon
-                </a>
+                </Link>
               </li>
               <li class="social-links__item">
-                <a
+                <Link
                   class="social-links__link social-links__link--in"
-                  href="http://www.instagram.com/robb0wen"
+                  to="http://www.instagram.com/robb0wen"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   Follow me on Instagram
-                </a>
+                </Link>
               </li>
               <li class="social-links__item">
-                <a
+                <Link
                   class="social-links__link social-links__link--gh"
-                  href="https://github.com/robb0wen"
+                  to="https://github.com/robb0wen"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   Visit my GitHub
-                </a>
-              </li>
-              <li class="social-links__item">
-                <a
-                  class="social-links__link social-links__link--rss"
-                  href="/feed.xml"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  data-rekishi-skip=""
-                >
-                  Subscribe to my RSS feed
-                </a>
-              </li>
-              <li class="social-links__item">
-                <a
-                  class="social-links__link social-links__link--email"
-                  href="mailto:hello@robbowen.digital"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  Send me an Email
-                </a>
+                </Link>
               </li>
             </ul>
             <ul class="main-menu__links primary-links">
               <li class="primary-links__item">
-                <a
+                <Link
                   aria-current="page"
                   class="primary-links__link t-primary"
-                  href="/"
+                  to="/"
                   aria-describedby="desc_home"
+                  reloadDocument={true}
                 >
                   Home
-                </a>{" "}
+                </Link>{" "}
                 <span id="desc_home" class="primary-links__summary">
                   Back to the home page.
                 </span>
               </li>
               <li class="primary-links__item">
-                <a
+                <Link
                   aria-current="page"
                   class="primary-links__link t-primary"
-                  href="/work"
+                  to="/work"
                   aria-describedby="desc_work"
+                  reloadDocument={true}
                 >
                   Work
-                </a>{" "}
+                </Link>{" "}
                 <span id="desc_work" class="primary-links__summary">
                   My approach to development.
                 </span>
               </li>
               <li class="primary-links__item">
-                <a
+                <Link
                   class="primary-links__link t-primary"
-                  href="/about"
+                  to="/about"
                   aria-describedby="desc_about"
+                  reloadDocument={true}
                 >
                   About
-                </a>{" "}
+                </Link>{" "}
                 <span id="desc_about" class="primary-links__summary">
                   A little about me and my background.
                 </span>
               </li>
               <li class="primary-links__item">
-                <a
+                <Link
                   class="primary-links__link t-primary"
-                  href="/writing"
+                  to="/projects"
                   aria-describedby="desc_writing"
+                  reloadDocument={true}
                 >
-                  Writing
-                </a>{" "}
+                  Projects
+                </Link>{" "}
                 <span id="desc_writing" class="primary-links__summary">
-                  My latest writing on tech and language.
+                  My latest Projects.
                 </span>
               </li>
             </ul>

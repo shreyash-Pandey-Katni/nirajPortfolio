@@ -1362,7 +1362,7 @@ function Work() {
   ];
 
   return (
-    <div>
+    <div className="section" style={{ textAlign: "left" }}>
       <header className="page-header" style={{ textAlign: "left" }}>
         <div className="page-header__inr">
           <div
@@ -1381,7 +1381,7 @@ function Work() {
               I collaborate with innovative people to develop and deliver
               engaging, user-friendly websites and products. From contributing
               to projects for clients such as{" "}
-              <b>Samsung, Microsoft, AWS, and Deloitte</b>, to pursuing my
+              <b>Samsung and Deloitte</b>, to pursuing my
               Master’s degree in Information Technology and Management at
               Illinois Institute of Technology, I’ve dedicated more than five
               years to enhancing the web with my skills and passion.
