@@ -3,11 +3,44 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter, RouterProvider
+} from 'react-router-dom';
+import LandingPage from './LandingPage';
+import About from './About';
+import Header from './Header';
+import Work from './Work';
+import Projects from './Projects';
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      exact: true,
+      element: <div><Header /> <LandingPage /></div>
+    },
+    {
+      path: '/about',
+      element: <div><Header /> <About /></div>
+    },
+    {
+      path: '/work',
+      element: <div><Header /> <Work /></div>
+    },
+    {
+      path: '/projects',
+      element: <div><Header /> <Projects /></div>
+    }
+  ]
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Implement code to
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

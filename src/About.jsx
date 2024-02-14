@@ -1,18 +1,19 @@
 import { useEffect } from "react";
+import "./styles/About.module.css"
 
 function About() {
 
   useEffect (() => {
     // set title
     document.title = "Who I am - Niraj Sriramula";
-  })
+  }, [])
 
   const hobbies = [
     {
         description1:
-          "The valleys of rural Wales aren't quite Silicon Valley, but growing up out here gives you a lot of space to think. When I wasn't out exploring the mountains, I was teaching myself to code. A lot has changed over the years, but I’ve been building for the web since table layouts and under-construction gifs were the Hot New Thing™.",
+        <p> I'm a tech enthusiast from <strong>Bengaluru</strong>, India's Silicon Valley. I earned my Bachelor's in <strong>Computer Science and Engineering</strong> from <strong>Bangalore Institute of Technology</strong>, where I honed my skills in <strong>Python, C++, Golang, JavaScript, SQL, Docker, and Kubernetes</strong> through various projects such as <strong>ROBO ADVISOR</strong> and <strong>SDI BIT</strong>.</p>,
         description2:
-          "Graduating university with a degree in Japanese and Web Production in 2007, I swapped Pen Y Fan for Mt. Fuji, and moved to Japan where I spent time working in the emerging Tokyo startup scene. After I came back to the UK, I joined one of the South West’s leading digital agencies and worked my way up to lead their frontend development team.",
+        <p>Post-graduation, I embarked on my professional journey with <strong>Samsung</strong> and later <strong>HashedIn by Deloitte</strong>, applying my skills to contribute to numerous projects. Seeking further education, I moved to the U.S. to pursue a <strong>Master's in Information Technology Management</strong> at the <strong>Illinois Institute of Technology</strong>, and participated in <strong>ACM at Illinois Tech: Programming Data Structure and Algorithms</strong>.</p>,
         illustration: (
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path
@@ -301,8 +302,8 @@ function About() {
       },
       {
         title: "Serial language-botherer",
-        description1: "Beyond coding, I have love for a different syntax - I am fascinated by <b>linguistics</b> and the <b>psychology of language acquisition</b>. I'm an eternal student and if you name a modern world language and I don't know a few words or phrases, chances are high that I soon will.",
-        description2: "These days, I'm equally interested in the intersection of linguistics and technology. Tired of <b>Natural Language Processing</b> being used solely for targeted advertising, I am currently exploring ways that <b>NLP and machine learning</b> could be used to improve second-language acquisition and retention.",
+        description1: <p> I'm a relentless pursuer of knowledge in the realm of programming languages and technologies. My resume is a testament to my constant zeal to learn and adapt. I've consistently expanded my skill set, mastering languages from <strong>Python</strong> to <strong>Golang</strong>, from <strong>C++</strong> to <strong>JavaScript</strong>.</p>,
+        description2: <p>Keeping pace with the ever-evolving tech landscape, I've demonstrated proficiency in <strong>Docker</strong> and <strong>Kubernetes</strong>, staying at the forefront of industry trends. Whether it's mastering a new language or diving into a complex project, my enthusiasm for learning remains undiminished, making me a true 'Serial Language-botherer'.</p>,
         illustration: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="svg-bg" d="M263.14,201.69c-14.3-17.93-21.83-38.81-21.83-60.64,0-57.86,53.36-104.94,118.94-104.94s118.94,47,118.94,104.74c0,34.66-19.26,67-51.52,86.55A128.69,128.69,0,0,1,360.25,246a131,131,0,0,1-52.85-10.93l-60.75,22.19Z"></path><path class="svg-bg" d="M166.27,337.83a108.82,108.82,0,0,1-43.33,8.84,106.9,106.9,0,0,1-56-15.46C40.1,315,24.06,288,24.06,259.1c0-48.11,44.36-87.25,98.88-87.25s98.87,39.22,98.87,87.41c0,18-6.11,35.17-17.73,50l14.12,47.55Z"></path><path class="svg-bg" d="M315.06,408.36c-11.63-14.83-17.76-32.05-17.76-50.06,0-48.27,44.43-87.54,99-87.54s99,39.2,99,87.38c0,28.94-16.06,55.95-43,72.24a107.07,107.07,0,0,1-56.07,15.47A109,109,0,0,1,352.92,437l-52,19Z"></path></svg>,
         illustrationLayers: [
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path class="svg-fill" d="M364.25,51.11c-61.25,0-110.94,43.4-110.94,96.94,0,22.11,8.52,42.39,22.71,58.82h0l-13.18,44.42,48.88-17.85h0A123.92,123.92,0,0,0,364.25,245a121.19,121.19,0,0,0,63.28-17.44c28.8-17.44,47.66-46.65,47.66-79.71C475.19,94.51,425.5,51.11,364.25,51.11Z"></path><path class="svg-fill" d="M125.94,185.85c50.17,0,90.87,35.56,90.87,79.41,0,18.11-7,34.73-18.61,48.18L209,349.82l-40-14.61a101.56,101.56,0,0,1-43,9.46A99.29,99.29,0,0,1,74.1,330.39c-23.59-14.29-39-38.21-39-65.29C35.06,221.41,75.77,185.85,125.94,185.85Z"></path><path class="svg-fill" d="M400.33,285.76c-50.26,0-91,35.61-91,79.54,0,18.14,7,34.78,18.64,48.26h0L317.12,450l40.11-14.65h0a101.52,101.52,0,0,0,43.1,9.49,99.39,99.39,0,0,0,51.92-14.31c23.63-14.31,39.11-38.28,39.11-65.4C491.36,321.37,450.59,285.76,400.33,285.76Z"></path></svg>,
@@ -327,10 +328,7 @@ function About() {
               </h1>
             </div>
             <p className="page-header__lede t-primary lh-loose t-body:s t-sublede:m t-lede:l reveal-content">
-              I'm a <b>developer</b>, <b>designer</b> and <b>linguist</b> who
-              has been building for the web in some capacity since 2001. I
-              specialise in accessibility, performance and usability without
-              sacrificing creativity.
+            I'm a <strong>tech enthusiast</strong> and <strong>speed cubing</strong> aficionado from <strong>Bengaluru's tech hub</strong>. As I navigate from local industry to <strong>global academia</strong>, my passion for <strong>innovation</strong>, <strong>performance</strong>, and <strong>problem-solving</strong> guides me. I'm not just crafting a career in technology, I'm building a <strong>legacy</strong>.
             </p>
             <span className="page-header__scroll" aria-hidden="true">
               <span>
@@ -363,8 +361,8 @@ function About() {
                     <span class="dot">.</span>
                   </h2>
                 }
-                <p>{hobby.description1} </p>
-                <p>{hobby.description2}</p>
+                {hobby.description1}
+                {hobby.description2}
               </div>
             </div>
             <div class="panels__side">

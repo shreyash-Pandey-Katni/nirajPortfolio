@@ -24,7 +24,7 @@ function LandingPage() {
           <path d="m10.75 8.75v1.5m-5.5-1.5v1.5m-.5-7.5 3.25 3 3.25-3" />
         </svg>
       ),
-       iconFill: (
+      iconFill: (
         <svg
           width="265"
           height="170"
@@ -71,7 +71,7 @@ function LandingPage() {
           <path d="m10.75 8.75v1.5m-5.5-1.5v1.5m-.5-7.5 3.25 3 3.25-3" />
         </svg>
       ),
-       iconFill: (
+      iconFill: (
         <svg
           width="265"
           height="170"
@@ -114,81 +114,36 @@ function LandingPage() {
   }, []);
 
   return (
-    <div
-      style={{
-        fontSize: "100%",
-        marginLeft: "20%",
-        marginRight: "20%",
-        display: "flex",
-        flexDirection: "column",
-        gap: "20rem",
-      }}
-    >
-      <div className="topIntroduction">
-        <Stack direction="row" justifyContent="space-between">
-          <div className="leftIntroduction" style={{ textAlign: "left" }}>
-            <h1
-              style={{
-                color: "var(--text)",
-                fontFamily: "Playfair Display",
-                fontWeight: 300,
-                fontSize: "10rem",
-              }}
-            >
-              Hi, my <br /> name is <b>Niraj</b>
-              <span className="dot">.</span>{" "}
-            </h1>
-            <h3
-              style={{
-                color: "var(--text)",
-                fontFamily: "Playfair Display",
-                fontWeight: 300,
-                fontSize: "3rem",
-              }}
-            >
+    <div className="section" style={{ textAlign: "left" }}>
+      <header className="page-header">
+        <div className="page-header__inr">
+          <div
+            className="page-header__content is-onscreen"
+            data-prlx="0 0.25"
+            style={{ position: "relative" }}
+          >
+            <div className="article-heading">
+              <h1 className="article-heading__title t-heading t-medium:s t-bigger:m t-biggest:l">
+                <span>
+                  Hi, my name is <b>Niraj</b><span className="dot">.</span>
+                </span>
+              </h1>
+            </div>
+            <p className="page-header__lede t-primary lh-loose t-body:s t-sublede:m t-lede:l reveal-content">
               I'm an <b>independent creative developer</b> from
               <br />
               Hyderabad, India.
-            </h3>
-          </div>
-        </Stack>
-      </div>
-      <div
-        className="scroll"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Stack direction="column" alignItems="center">
-          <span
-            className="page-header__scroll"
-            aria-hidden="true"
-            style={{ alignContent: "center" }}
-          >
-            <span>
-              <span>S</span>
-              <span>c</span>
-              <span>r</span>
-              <span>o</span>
-              <span>l</span>
-              <span>l</span>
+            </p>
+            <span className="page-header__scroll" aria-hidden="true">
+              <span>
+                <span>S</span> <span>c</span> <span>r</span> <span>o</span>{" "}
+                <span>l</span> <span>l</span>
+              </span>
             </span>
-          </span>
-          <br />
-          <svg height={scrollLineLength} width="50%" style={{ margin: "auto" }}>
-            <line
-              x1="calc(50% - 2.5rem)"
-              y1="1.3rem"
-              x2="calc(50% - 2.5rem)"
-              y2={scrollLineLength}
-              style={{ stroke: "var(--text)", strokeWidth: 0.8 }}
-            />
-          </svg>
-        </Stack>
-      </div>
-      
+          </div>
+        </div>
+      </header>
+
       <div className="approach panels__main" style={{ textAlign: "left" }}>
         <h2 class="article-heading__title t-heading t-medium:s t-big:m t-bigger:l">
           <span>
@@ -196,7 +151,6 @@ function LandingPage() {
             <span class="dot">.</span>
           </span>
         </h2>
-        <div class="flow reveal-content">
           <p>
             From interaction design to scaleable design systems, single-page
             apps to something more experimental with WebGL. I help awesome
@@ -209,12 +163,10 @@ function LandingPage() {
               class="btn__fill stripes"
               data-drift="-10 -12"
               aria-hidden="true"
-              style={{ transform: "translate(-9.90385px, 7.77482px)" }}
             >
               About my approach
             </span>
           </a>
-        </div>
       </div>
 
       <div className="open-source" style={{ textAlign: "left" }}>
@@ -266,9 +218,6 @@ function LandingPage() {
                     class="btn__fill stripes"
                     data-drift="-10 -12"
                     aria-hidden="true"
-                    style={{
-                      transform: `translate(${transformX}px, ${transformY}px)`,
-                    }}
                   >
                     Get {project.name}
                   </span>

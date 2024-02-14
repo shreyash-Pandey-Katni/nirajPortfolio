@@ -3893,8 +3893,8 @@ html.js.reduced-motion .reveal-content,html:not(.is-loading).js .is-onscreen .re
 
 .page-header__scroll {
     position: absolute;
-    /* bottom: -120px; */
-    /* left: 220px; */
+    bottom: -120px;
+    left: 220px;
     transform: translateX(-50%);
     font-size: 1.2rem;
     color: #919795;

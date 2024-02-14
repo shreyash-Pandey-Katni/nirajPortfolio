@@ -7,7 +7,7 @@ import { Stack } from "@mui/material";
 import React from "react";
 import About from "./About";
 import Projects from "./Projects";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -29,14 +29,16 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <nav>
+            <Header />
+          </nav>
           <div style={{marginLeft:"20%", marginRight:"20%"}}>
-            <Switch>
+            <Routes>
               <Route path="/" exact component={LandingPage} />
+              <Route path="/work" component={Work} />
               <Route path="/about" component={About} />
               <Route path="/projects" component={Projects} />
-              <Route path="/work" component={Work} />
-            </Switch>
+            </Routes>
           </div>
         </div>
       </Router>
